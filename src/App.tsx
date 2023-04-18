@@ -1,6 +1,10 @@
 import logo from './assets/logo.svg';
 import './App.css';
 import { useState } from 'react';
+import {fetchTracks} from './lib/fetchTracks' ;
+
+
+
 
 const trackUrls = [
   'https://p.scdn.co/mp3-preview/742294f35af9390e799dd96c633788410a332e52',
