@@ -10,36 +10,23 @@ const trackUrls = [
   'https://p.scdn.co/mp3-preview/ac28d1b0be285ed3bfd8e9fa5fad133776d7cf36',
 ];
 
-const apiToken = '';
-
-export const fetchTracks = async () => {
-  const response = await fetch('https://api.spotify.com/v1/me/tracks', {
-    method: 'GET',
-    headers: {
-      Authorization: 'Bearer ' + apiToken,
-    },
-  });
-  if (!response.ok) {
-     throw new Error(`Fetching tracks failed with status ${response.status}`)
-   }
-  const data = await response.json() as { items: unknown[] };
-
-  return data.items;
-};
 
 
 
 const App = () => {
+  
   const [trackIndex, setTrackIndex] = useState(0)
   const goToNextTrack = () => {
     setTrackIndex(trackIndex + 1);
   }
+  
+
   return (
     <div className="App">
     <audio src={trackUrls[trackIndex]} autoPlay controls />
-<button onClick={goToNextTrack}>
+      <button onClick={goToNextTrack}>
     Next track
-</button>
+      </button>
       
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
